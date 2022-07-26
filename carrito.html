@@ -14,19 +14,17 @@
     <meta property="og:description" content="Que Rico Soli. Comer sano y a buen precio es posible.">
 
     <link rel="shortcut icon" href="../img/logo.jpg" type="image/x-icon">
-    <title>Que Rico Soli - Platos</title>
+    <title>Que Rico Soli - Carrito</title>
 
     <!-- CSS Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-
     <!-- CSS -->
     <link rel="stylesheet" href="../css/estilo.css">
-
 </head>
 
-<body>
+<body id="bodyCarrito">
     <header class="p-3 border-bottom">
 
         <!-- Navegacion Boostrap -->
@@ -87,57 +85,25 @@
 
     </header>
 
-
-    <!-- NAVEGACION INTERNA -->
-    <nav class="navInterna">
-        <h2>Platos</h2>
-        <ul>
-            <li><a href="#vegetariano">Vegetariano</a>
-                <p>|</p>
-            </li>
-            <li><a href="#conCarne">Con Carne</a>
-             
-            </li>
-                   
-        </ul>
-    </nav>
-
-    <!-- Secciones de platos -->
-    <!-- Modal -->
-    <div class="modal" id="modalComprar">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Producto añadido al carrito de compras</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"></span>
-                    </button>
+    <main>
+        <!-- ARMAR CARRITO DE COMPRAS CON JAVA SCRIPT **** Formato aproximado -->
+        <h2>Carrito de compras</h2>
+        <section class="carrito">
+            <section id="productosAgregados">
+                <div class="tituloCarrito">
+                    <p id="tituloProd">Producto</p>
+                    <p id="tituloPrecio">Precio</p>
+                    <p id="tituloCant">Cantidad</p>
+                    <p id="tituloTotal">Total</p>
                 </div>
-                <div class="modal-body">
-                    <p>¡Tu producto fue añadido correctamente al carrito de compras!</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn " data-bs-dismiss="modal" >Seguir Comprando</button>
-                    <a href="./carrito.html"><button type="button" class="btn " data-bs-dismiss="modal" >Ir al Carrito</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="fotosPlatos">
-        <!-- vegetarianos -->
-        <div id="vegetariano" >
-            <h3>Vegetariano</h3>
-            <div id="platos-vegie">       </div>
-        </div>
-        <!-- con carne -->
-        <div id="conCarne" >
-            <h3>Con Carne</h3>
-            <div id="platos-carne">      </div>
-        </div>
-        
-        
-    </section>
 
+            </section>
+            <!-- <aside id="costo">
+
+            </aside> -->
+        </section>
+
+    </main>
 
 
     <!-- INICIO FOOTER -->
@@ -173,14 +139,12 @@
 
     </footer>
 
-
-
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 
-    <script src="./platos.js"></script>
+    <script src="./carrito.js"></script>
 </body>
 
 </html>

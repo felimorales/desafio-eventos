@@ -18,6 +18,8 @@
 /* font-family: 'Roboto', sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&display=swap");
 /*font-family: 'Noto Sans', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 /* Fin Fuentes. ---------------------------- */
 h1, h2, h3 {
   text-align: center;
@@ -96,8 +98,7 @@ header ul {
 
 /* Animacion Menu */
 .menuLink:hover {
-  color: #d27109 !important;
-  transform: scale(1.2, 1.2); }
+  color: #d27109 !important;}
 
 /* Animacion Subrayado Menu 
 .menuLink {
@@ -211,7 +212,7 @@ p {
   max-width: 100%;
   margin: 10px; }
 
-#platos-padre {
+#platos-vegie, #platos-carne {
   display: flex;
   justify-content: center;
   width: 90%;
@@ -239,11 +240,15 @@ p {
   .platos:hover {
     transform: scale(1.02, 1.02); }
 
-    .cantidad {
+    .campoCantidad {
     max-width: 30px;
     height: 25px;
     display: inline-block;
-    margin-left: 5px;
+    margin-left: 15px;
+    padding-left: 5px;
+    font-size: 1.2rem;
+    border-radius: 4px;
+
   }
 .btn:hover {
   color: #fff; }
@@ -390,35 +395,115 @@ iframe {
   padding-bottom: 10px; }
 
 /* Fin Preguntas.--------------------------- */
-.carrito {
-  display: grid;
-  grid-template-areas: "productos productos costo"
- "productos productos costo"; }
+/* Inicio Carrito.-------------------------- */
 
-.productosAgregados, .costo {
-  border: #000 2px solid;
+.carrito {
+  display: flex;
+  justify-content: center;
+ 
+}
+#bodyCarrito main{
+  min-height: 500px;
+}
+
+#productosAgregados{
   border-radius: 4px;
-  width: 70vw;
-  height: 300px;
+  width: 90%;
   grid-area: productos;
   display: inline-block;
-  margin-left: 20px; }
+  margin-left: 20px; 
+}
 
-.costo {
+#costo {
   width: 20vw;
   grid-area: costo; }
+#productosAgregados {
+  grid-area: productos;
+}
 
+#productosAgregados p{
+  display: inline-block;
+}
+#tituloProd {
+  width: 450px;
+  padding-left: 30px;
+  padding-top: 15px;
+  font-size: 1.8rem;
+}
+#tituloPrecio, #tituloTotal{
+  width: 80px;
+  margin-left: 10px;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 1.8rem;
+}
+#tituloCant{
+  width: 80px;
+  margin-left: 50px;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 1.8rem;
+}
+.tituloCarrito{
+  margin: 10px 60px 20px 10px;
+  padding-bottom: 20px;
+  display: inline-block !important; 
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+}
 .productoCarrito {
   display: flex;
   margin: 10px 60px 20px 10px;
-  justify-content: space-between; }
+  padding-bottom: 20px;
+  border-bottom: lightgray solid 0.5px;
+  }
   .productoCarrito p {
-    display: inline-block !important; }
-  .productoCarrito img {
-    display: inline-block !important; }
+    display: inline-block !important; 
+    font-family: 'Roboto', sans-serif;
 
+     }
+
+  .productoCarrito img {
+    display: inline-block !important;}
+
+.nombreCarrito{
+  padding-left: 20px;
+  padding-top: 10px;
+  width: 350px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  align-items: center;
+    }
+ .precioCarrito, .totalCarrito{
+  margin-left: 10px;
+  padding-top: 10px;
+  width: 80px  ;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
+  text-align: center;
+  
+  align-items: center;
+}
+.cantidadCarrito{
+  margin-left: 50px;
+  padding-top: 10px;
+  width: 80px  ;
+  font-family: 'Roboto', sans-serif; 
+  font-size: 1.6rem;
+  text-align: center;
+}
 .imgCarrito {
-  width: 100px; }
+  width: 100px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.eliminarProd{
+  border: none;
+  background: none;
+  color: red;
+  font-size: 2rem;
+}
 
 /* Fin Carrito.--------------------------- */
 /* Inicio Planes.------------------------ */
