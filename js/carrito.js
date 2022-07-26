@@ -103,13 +103,34 @@ for (productos of unificadoProd) {
   item.className = "productoCarrito";
 }
 
-let total = unificadoProd.reduce(
-  (acumulador, elemento) => acumulador + elemento.precio * elemento.cantidad,
-  0
-);
+let total = unificadoProd.reduce((acumulador, elemento) => acumulador + elemento.precio * elemento.cantidad, 0);
 console.log(total);
 console.log(precioFinal);
 
 const totalAPagar = document.createElement("div");
-totalAPagar.innerHTML = `<p>Total A Pagar $ ${precioFinal}</p>`;
+totalAPagar.innerHTML = `<p>Total a Pagar    $ ${precioFinal}</p>`;
+totalAPagar.id = "totalAPagar";
 prodAdd.append(totalAPagar);
+
+/* const btnVaciar = document.createElement("input");
+btnVaciar.type="submit";
+btnVaciar.className = "btn btnVaciar";
+btnVaciar.value = "Vaciar Carrito";
+vaciarCarrito.append(btnVaciar); */
+
+let vaciarCarrito = document.getElementById("vaciarCarrito");
+vaciarCarrito.addEventListener("submit", limpiarCarrito);
+function limpiarCarrito(e) {
+  e.preventDefault();
+  console.log(precioFinal);
+  limpiarDom() ;
+  localStorage.clear();
+
+  /* 
+  productoCarrito.remove(); */
+}
+
+function limpiarDom() {
+  let container = document.querySelectorAll(".productoCarrito");
+  container.remove();
+}

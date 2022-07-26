@@ -398,9 +398,9 @@ iframe {
 /* Inicio Carrito.-------------------------- */
 
 .carrito {
-  display: flex;
+  display: block;
   justify-content: center;
- 
+  /* background-color: aqua; */
 }
 #bodyCarrito main{
   min-height: 500px;
@@ -409,17 +409,19 @@ iframe {
 #productosAgregados{
   border-radius: 4px;
   width: 90%;
-  grid-area: productos;
-  display: inline-block;
-  margin-left: 20px; 
+  margin: auto; 
+  padding-top: 30px;
 }
 
-#costo {
-  width: 20vw;
-  grid-area: costo; }
-#productosAgregados {
-  grid-area: productos;
+#comentarioEnvio{
+width: 90%;
+margin: auto;
+text-align: center;
+font-size: 1.6rem;
+font-family:Arial, Helvetica, sans-serif;
+/* background-color: beige; */
 }
+
 
 #productosAgregados p{
   display: inline-block;
@@ -445,17 +447,22 @@ iframe {
   font-size: 1.8rem;
 }
 .tituloCarrito{
-  margin: 10px 60px 20px 10px;
+  margin: 10px 0px 20px 0px;
   padding-bottom: 20px;
-  display: inline-block !important; 
+  display: flex ; 
+  justify-content: space-between;
+  align-items:center;
   font-family: 'Roboto', sans-serif;
   font-size: 1.8rem;
 }
 .productoCarrito {
   display: flex;
-  margin: 10px 60px 20px 10px;
+  margin: 10px 0px 20px 0px;
+  justify-content: space-between;
+  align-items:center;
   padding-bottom: 20px;
   border-bottom: lightgray solid 0.5px;
+ 
   }
   .productoCarrito p {
     display: inline-block !important; 
@@ -503,6 +510,17 @@ iframe {
   background: none;
   color: red;
   font-size: 2rem;
+}
+
+#totalAPagar {
+  text-align: right;
+  font-size: 2.3rem;
+  color: #4f4f4f;
+  padding-right: 60px;
+}
+
+#vaciarCarrito{
+  text-align: right;
 }
 
 /* Fin Carrito.--------------------------- */
