@@ -33,9 +33,9 @@ console.log(entries); */
 //Creacion de HTML del carrito
 
 //Traigo los contenedores padre que voy a usar
-let prodAdd = document.getElementById("productosAgregados");
+let prodAddItem = document.getElementById("prodDetalle");
+let prodAgregados = document.getElementById("productosAgregados");
 let precioFinal = 0;
-
 let filtrados;
 
 function createPlatoCarrito(producto) {
@@ -53,7 +53,7 @@ function createPlatoCarrito(producto) {
   prodCarrito.append(nombre);
   //Precio que va al div del producto.
   const precio = document.createElement("p");
-  precio.innerText = `$ ${producto.precio}`;
+  precio.innerText = `$ ${producto.precio.toFixed(2)}`;
   precio.className = "precioCarrito";
   prodCarrito.append(precio);
   //Cantidad que va al div del producto.
@@ -63,7 +63,9 @@ function createPlatoCarrito(producto) {
   prodCarrito.append(cantidad);
   //Precio total que va al div del producto
   const precioTotal = document.createElement("p");
-  precioTotal.innerText = `$ ${producto.precio * producto.cantidad}`;
+  precioTotal.innerText = `$ ${(producto.precio * producto.cantidad).toFixed(
+    2
+  )}`;
   precioTotal.className = "totalCarrito";
   prodCarrito.append(precioTotal);
   //Boton de eliminar
@@ -85,8 +87,8 @@ function createPlatoCarrito(producto) {
     console.log(filtrados);
     localStorage.setItem("carrito", JSON.stringify(filtrados));
     precioFinal -= producto.precio * producto.cantidad;
-    totalAPagar.innerHTML = `<p>Total A Pagar $ ${precioFinal}</p>`;
-    prodAdd.append(totalAPagar);
+    totalAPagar.innerHTML = `<p>Total A Pagar $ ${precioFinal.toFixed(2)}</p>`;
+    prodAgregados.append(totalAPagar);
     console.log(precioFinal);
   });
 
@@ -99,18 +101,16 @@ for (productos of unificadoProd) {
   //Creo el div con la funcion
   const item = createPlatoCarrito(productos);
   //Agrego el div del producto que se creo al div del carrito que incluye todos los productos y le asigno clase.
-  prodAdd.append(item);
+  prodAddItem.append(item);
   item.className = "productoCarrito";
 }
 
-let total = unificadoProd.reduce((acumulador, elemento) => acumulador + elemento.precio * elemento.cantidad, 0);
-console.log(total);
 console.log(precioFinal);
 
 const totalAPagar = document.createElement("div");
-totalAPagar.innerHTML = `<p>Total a Pagar    $ ${precioFinal}</p>`;
+totalAPagar.innerHTML = `<p>Total a Pagar    $ ${precioFinal.toFixed(2)}</p>`;
 totalAPagar.id = "totalAPagar";
-prodAdd.append(totalAPagar);
+prodAgregados.append(totalAPagar);
 
 /* const btnVaciar = document.createElement("input");
 btnVaciar.type="submit";
@@ -122,15 +122,9 @@ let vaciarCarrito = document.getElementById("vaciarCarrito");
 vaciarCarrito.addEventListener("submit", limpiarCarrito);
 function limpiarCarrito(e) {
   e.preventDefault();
-  console.log(precioFinal);
-  limpiarDom() ;
+  prodAddItem.remove();
   localStorage.clear();
-
-  /* 
-  productoCarrito.remove(); */
-}
-
-function limpiarDom() {
-  let container = document.querySelectorAll(".productoCarrito");
-  container.remove();
+  precioFinal = 0;
+  totalAPagar.innerHTML = `<p>Total A Pagar $ ${precioFinal.toFixed(2)}</p>`;
+  prodAgregados.append(totalAPagar);
 }
